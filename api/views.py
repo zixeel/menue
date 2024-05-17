@@ -7,4 +7,6 @@ from api.serializers import FoodListSerializer
 
 class FoodCategoryListAPIView(ListAPIView):
     serializer_class = FoodListSerializer
-    queryset = FoodCategory.objects.all()
+    def get_queryset(self):
+        queryset = FoodCategory.objects.filter(food__is_publish=True).distinct()
+        return queryset
