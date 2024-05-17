@@ -1,11 +1,7 @@
-from django_filters.rest_framework import DjangoFilterBackend
-from rest_framework import generics, status
-from django.db.models import Count, Q, F
 from rest_framework.generics import ListAPIView
 from rest_framework.response import Response
-from rest_framework.views import APIView
 
-from api.models import FoodCategory, Food
+from api.models import FoodCategory
 from api.serializers import FoodListSerializer
 
 
