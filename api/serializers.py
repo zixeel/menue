@@ -13,8 +13,6 @@ class FoodSerializer(serializers.ModelSerializer):
                   'description_ch', 'is_vegan', 'is_special', 'cost', 'additional')
 
 
-
-
 class FoodListSerializer(serializers.ModelSerializer):
     foods = FoodSerializer(source='food', many=True, read_only=True)
 
@@ -23,7 +21,6 @@ class FoodListSerializer(serializers.ModelSerializer):
         published_foods = instance.food.filter(is_publish=True)
         data['foods'] = FoodSerializer(published_foods, many=True).data
         return data
-
 
     class Meta:
         model = FoodCategory
